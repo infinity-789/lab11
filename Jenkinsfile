@@ -25,6 +25,12 @@ pipeline {
                 bat 'mvn test'
             }
         }
+
+        stage ('Coverage') {
+            steps {
+                jacoco()
+            }
+        }
     }
 
     post {
