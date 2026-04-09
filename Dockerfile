@@ -1,7 +1,11 @@
-FROM openjdk:27-ea-jdk-slim
+FROM maven:3.9.9-eclipse-temurin-17
 
 WORKDIR /app
 
-COPY src/ .
+COPY src /.
 
-CMD ["java", "./main/java/com/devops/lab/Output.java"]
+RUN mvn clean test
+
+EXPOSE 5020
+
+CMD ["java", "main\java\com\devops\lab\Output.java"]
